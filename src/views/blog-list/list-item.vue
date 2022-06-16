@@ -35,12 +35,12 @@ export default {
 
 .list-item__title {
   color: $--color-primary;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .list-item__summary {
   color: $--color-text;
   font-size: 14px;
-  line-height: 22px;
+  line-height: 18px;
 }
 </style>

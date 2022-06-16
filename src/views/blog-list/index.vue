@@ -1,26 +1,30 @@
 <template>
-  <div class="blog-list">
-    <aside class="blog-list__aside u-card">
-      <div class="introduce">
-        <img class="introduce__avatar" :src="avatarImgUrl" />
-        <p class="introduce__name">{{ name }}</p>
-      </div>
-      <nav class="aside__nav">
-        <u-nav-item
-          class="nav__item"
-          v-for="item in navList"
-          :key="item.title"
+  <div class="u-main blog-list">
+    <div class="u-main-aside u-main-aside--right ">
+      <aside class="blog-list__aside u-card">
+        <div class="introduce">
+          <img class="introduce__avatar" :src="avatarImgUrl" />
+          <p class="introduce__name">{{ name }}</p>
+        </div>
+        <nav class="aside__nav">
+          <u-nav-item
+            class="nav__item"
+            v-for="item in navList"
+            :key="item.title"
+            v-bind="item"
+          ></u-nav-item>
+        </nav>
+      </aside>
+    </div>
+    <div class="u-main-center">
+      <div class="blog-list__container u-card">
+        <list-item
+          v-for="item in blogList"
+          :key="item.id"
           v-bind="item"
-        ></u-nav-item>
-      </nav>
-    </aside>
-    <div class="blog-list__container u-card">
-      <list-item
-        v-for="item in blogList"
-        :key="item.id"
-        v-bind="item"
-        @route="handleRoute"
-      ></list-item>
+          @route="handleRoute"
+        ></list-item>
+      </div>
     </div>
   </div>
 </template>
@@ -81,23 +85,18 @@ export default {
 
 <style lang="scss" scoped>
 .blog-list {
-  display: flex;
-
   height: 100%;
-  padding: 20px;
 }
+
 .blog-list__aside {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  width: 300px;
+  width: 100%;
 }
 
 .blog-list__container {
-  flex: 1;
-  margin-left: 20px;
-
   overflow: auto;
 }
 
@@ -127,6 +126,10 @@ export default {
   font-size: 18px;
   font-weight: 700;
   color: $--color-primary;
+}
+
+.aside__nav {
+  width: 100%;
 }
 
 .nav__item {

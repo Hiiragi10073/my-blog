@@ -28,7 +28,7 @@ export default {
   justify-content: center;
   align-items: center;
 
-  width: 214px;
+  width: 100%;
   height: 32px;
 
   background: $--color-title;

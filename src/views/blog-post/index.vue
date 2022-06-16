@@ -1,12 +1,16 @@
 <template>
-  <div class="blog-post">
-    <aside class="blog-post__aside">
-      <u-directory :content="article"></u-directory>
-    </aside>
-    <main class="blog-post__container">
-      <u-article :content="article"></u-article>
+  <div class="u-main blog-post">
+    <aside class="u-main-aside u-main-aside--left blog-list"></aside>
+    <main class="u-main-center">
+      <div class="blog-post__container">
+        <u-article :content="article"></u-article>
+      </div>
     </main>
-    <aside class="blog-list"></aside>
+    <aside class="u-main-aside u-main-aside--right">
+      <div class="blog-post__aside">
+        <u-directory :content="article"></u-directory>
+      </div>
+    </aside>
   </div>
 </template>
 
@@ -51,14 +55,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.blog-post__aside {
-  width: 200px;
-  height: calc(100vh - 159px);
-  position: fixed;
-}
-
 .blog-post__container {
-  max-width: 1024px;
-  margin: 0 auto;
+  height: 100%;
+  overflow-y: auto;
+  
+  border-radius: 5px;
 }
 </style>
